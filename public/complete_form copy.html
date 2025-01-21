@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database Forms</title>
+    <style>
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            margin: 0;
+            padding: 20px;
+        }
+        .form-container {
+            max-width: 900px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 25px;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: 600;
+            color: #555;
+        }
+        label.required:after {
+            content: " *";
+            color: red;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            box-sizing: border-box;
+            background: #f9f9f9;
+            transition: all 0.3s ease;
+        }
+        input:focus, select:focus, textarea:focus {
+            border-color: #4facfe;
+            background: #fff;
+            box-shadow: 0 0 8px rgba(79, 172, 254, 0.5);
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            background: linear-gradient(to right, #00f2fe, #4facfe);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .form-section {
+            margin-bottom: 40px;
+        }
+        .form-section:last-child {
+            margin-bottom: 0;
+        }
+        .form-description {
+            font-size: 0.9rem;
+            color: #777;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Form for Assignments Table -->
+    <div class="form-container">
+        <h1>Add/Update Assignment</h1>
+        <div class="form-description">
+            Use this form to manage assignments for participants. Ensure all required fields are completed.
+        </div>
+        <form action="/assignments" method="POST">
+            <label for="assignment_id" class="required">Assignment ID</label>
+            <input type="text" id="assignment_id" name="assignment_id" placeholder="Enter Assignment ID" required>
+
+            <label for="assignment_name" class="required">Assignment Name</label>
+            <input type="text" id="assignment_name" name="assignment_name" placeholder="Enter Assignment Name" required>
+
+            <label for="start_date" class="required">Start Date</label>
+            <input type="date" id="start_date" name="start_date" required>
+
+            <label for="end_date">End Date</label>
+            <input type="date" id="end_date" name="end_date">
+
+            <label for="hours">Hours</label>
+            <input type="number" id="hours" name="hours" step="0.01" placeholder="Enter Hours">
+
+            <button type="submit">Submit Assignment</button>
+        </form>
+    </div>
+
+    <!-- Form for Member Table -->
+    <div class="form-container">
+        <h1>Add/Update Member</h1>
+        <div class="form-description">
+            Use this form to manage participant details. Fill in all the required fields accurately.
+        </div>
+        <form action="/members" method="POST">
+            <label for="member_id" class="required">Member ID</label>
+            <input type="text" id="member_id" name="member_id" placeholder="Enter Member ID" required>
+
+            <label for="first_name" class="required">First Name</label>
+            <input type="text" id="first_name" name="first_name" placeholder="Enter First Name" required>
+
+            <label for="middle_name">Middle Name</label>
+            <input type="text" id="middle_name" name="middle_name" placeholder="Enter Middle Name">
+
+            <label for="last_name" class="required">Last Name</label>
+            <input type="text" id="last_name" name="last_name" placeholder="Enter Last Name" required>
+
+            <label for="birth_date" class="required">Birth Date</label>
+            <input type="date" id="birth_date" name="birth_date" required>
+
+            <label for="street_address" class="required">Street Address</label>
+            <input type="text" id="street_address" name="street_address" placeholder="Enter Street Address" required>
+
+            <label for="address_line_2">Address Line 2</label>
+            <input type="text" id="address_line_2" name="address_line_2" placeholder="Enter Address Line 2">
+
+            <label for="city" class="required">City</label>
+            <input type="text" id="city" name="city" placeholder="Enter City" required>
+
+            <label for="state" class="required">State</label>
+            <input type="text" id="state" name="state" placeholder="Enter State" required>
+
+            <label for="zip_code" class="required">Zip Code</label>
+            <input type="text" id="zip_code" name="zip_code" placeholder="Enter Zip Code" required>
+
+            <label for="status" class="required">Status</label>
+            <input type="text" id="status" name="status" placeholder="Enter Status Code (e.g., AC for Active)" required>
+
+            <label for="partner">Partner</label>
+            <input type="text" id="partner" name="partner" placeholder="Enter Partner">
+
+            <label for="ej_participant">EJ Participant</label>
+            <input type="text" id="ej_participant" name="ej_participant" placeholder="Yes/No">
+
+            <label for="low_income">Low Income</label>
+            <input type="text" id="low_income" name="low_income" placeholder="Yes/No">
+
+            <label for="fossil_fuel_worker">Fossil Fuel Worker</label>
+            <input type="text" id="fossil_fuel_worker" name="fossil_fuel_worker" placeholder="Yes/No">
+
+            <label for="tribe_member">Tribe Member</label>
+            <input type="text" id="tribe_member" name="tribe_member" placeholder="Yes/No">
+
+            <label for="gateway_city">Gateway City</label>
+            <input type="text" id="gateway_city" name="gateway_city" placeholder="Yes/No">
+
+            <label for="new_entrant">New Entrant</label>
+            <input type="text" id="new_entrant" name="new_entrant" placeholder="Yes/No">
+
+            <label for="participant_status">Participant Status</label>
+            <input type="text" id="participant_status" name="participant_status" placeholder="Enter Status">
+
+            <label for="enroll_date" class="required">Enroll Date</label>
+            <input type="date" id="enroll_date" name="enroll_date" required>
+
+            <label for="training_focus_high_perf">Training Focus (High Performance)</label>
+            <textarea id="training_focus_high_perf" name="training_focus_high_perf" placeholder="Enter Training Focus Details"></textarea>
+
+            <label for="training_focus_net_zero">Training Focus (Net Zero)</label>
+            <textarea id="training_focus_net_zero" name="training_focus_net_zero" placeholder="Enter Training Focus Details"></textarea>
+
+            <label for="training_focus_clean_transp">Training Focus (Clean Transportation)</label>
+            <textarea id="training_focus_clean_transp" name="training_focus_clean_transp" placeholder="Enter Training Focus Details"></textarea>
+
+            <label for="training_focus_offshore_wind">Training Focus (Offshore Wind)</label>
+            <textarea id="training_focus_offshore_wind" name="training_focus_offshore_wind" placeholder="Enter Training Focus Details"></textarea>
+
+            <label for="other_climate_critical_train">Other Climate Critical Training</label>
+            <textarea id="other_climate_critical_train" name="other_climate_critical_train" placeholder="Enter Training Focus Details"></textarea>
+
+            <label for="salary_enrollment">Salary Enrollment</label>
+            <input type="number" id="salary_enrollment" name="salary_enrollment" placeholder="Enter Salary">
+
+            <label for="income_preprogram">Income Preprogram</label>
+            <input type="number" id="income_preprogram" name="income_preprogram" placeholder="Enter Income">
+
+            <label for="salary_placement">Salary Placement</label>
+            <input type="number" id="salary_placement" name="salary_placement" placeholder="Enter Salary Placement">
+
+            <label for="salary_current">Current Salary</label>
+            <input type="number" id="salary_current" name="salary_current" placeholder="Enter Current Salary">
+
+            <label for="certifications">Certifications</label>
+            <input type="text" id="certifications" name="certifications" placeholder="Enter Certifications">
+
+            <label for="college_credits">College Credits</label>
+            <input type="number" id="college_credits" name="college_credits" placeholder="Enter College Credits">
+
+            <button type="submit">Submit Member</button>
+        </form>
+    </div>
+
+    <!-- Form for Member_Events Table -->
+    <div class="form-container">
+        <h1>Add/Update Member Event</h1>
+        <div class="form-description">
+            Use this form to log events for participants.
+        </div>
+        <form action="/member-events" method="POST">
+            <label for="event_id" class="required">Event ID</label>
+            <input type="text" id="event_id" name="event_id" placeholder="Enter Event ID" required>
+
+            <label for="event" class="required">Event Code</label>
+            <input type="text" id="event" name="event" placeholder="Enter Event Code" required>
+
+            <label for="event_date_time" class="required">Event Date and Time</label>
+            <input type="datetime-local" id="event_date_time" name="event_date_time" required>
+
+            <button type="submit">Submit Event</button>
+        </form>
+    </div>
+</body>
+</html>
