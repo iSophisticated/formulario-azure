@@ -4,6 +4,13 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const { getDbConnection, sql } = require('./db/connection'); // Importar la conexión y el objeto sql
 
+// Validar CLIENT_SECRET
+const clientSecret = process.env.CLIENT_SECRET;
+if (!clientSecret) {
+  console.error('Error: CLIENT_SECRET no está configurado en las variables de entorno.');
+  process.exit(1); // Detiene la ejecución si no se encuentra CLIENT_SECRET
+}
+
 // Configurar la aplicación
 const app = express();
 const port = 3000;
